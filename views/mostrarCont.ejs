@@ -1,0 +1,32 @@
+<%- include("templates/encabezado", {titulo: "Registros"})%>
+<div class="container-sm">
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nombre.</th>
+                <th>Apellidos.</th>
+                <th>Edad.</th>
+                <th>Modificar.</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% contactosBD.forEach(contacto=>{ %>
+                <tr>
+                    <td><%= contacto.nombre %></td>
+                    <td><%= contacto.apellidos %></td>
+                    <td><%= contacto.expediente %></td>
+                    <td>
+                        <a class="btn btn-outline-warning" href="/editarContacto/<%= contacto._id %>" >Editar</a> / 
+                        <a class="btn btn-outline-danger" href="/borrar/:id/<%= contacto._id %>" >Borrar</a>
+                    </td>
+                </tr>
+            <% }) %>
+
+        </tbody>
+    </table>
+</div>
+    
+
+<%- include("templates/pie.ejs") %>
